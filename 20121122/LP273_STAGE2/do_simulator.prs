@@ -1,0 +1,24 @@
+[BrowseWave]
+Window[0] Left=497
+Window[0] Top=265
+Window[0] Right=1150
+Window[0] Bottom=585
+Window[0] Show=1
+Window[0] Zoom=1
+Window[0] Pin Count=1
+Window[0] Pin[0]Name=P20/ANI0/TI000/TOH
+Window[0] Pin[0]FuncName=P20/ANI0/TI000/TOH
+Window[0] Pin[0]IsAnalog=0
+Window Count=1
+[Panel]
+PullUp Pins=
+PullDown Pins=
+Window[0] Left=14
+Window[0] Top=150
+Window[0] Right=514
+Window[0] Bottom=650
+Window[0] Show=1
+Window[0] Document Name=do_simulator0.pnl
+Window Count=1
+[GuiStdio]
+IFName=00000000

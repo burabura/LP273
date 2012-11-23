@@ -1,0 +1,32 @@
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc main.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc systeminit.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\RA78K0S\V2.00\bin\ra78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff  option.asm
+PASS_OUTOBJ Start
+Assembly complete,     0 error(s) and     0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc system.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc system_user.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc port.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc ad.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc ad_user.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc lvi.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc lvi_user.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc timer.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\bin\cc78k0s.exe" -cF9202 -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -zpc timer_user.c
+Compilation complete,    0 error(s) and    0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\RA78K0S\V2.00\bin\lk78k0s.exe" -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff -oa.lmf "C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\lib78k0s\s0s.rel"  -pa.map -bcl0s.lib -bcl0sf.lib -i"C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\lib78k0s" -dlk.dr -s  main.rel systeminit.rel option.rel system.rel system_user.rel port.rel ad.rel ad_user.rel lvi.rel lvi_user.rel timer.rel timer_user.rel 
+Link complete,     0 error(s) and     0 warning(s) found.
+"C:\Program Files\NEC Electronics Tools\RA78K0S\V2.00\bin\oc78k0s.exe" -y"C:\Program Files\NEC Electronics Tools\DEV" -_msgoff  a.lmf
+
+Object Conversion Complete,      0 error(s) and     0 warning(s) found.
+
+Build Total error(s) : 0  Total warning(s) : 0 

@@ -1,0 +1,11 @@
+[ProjectManager]
+FrameMax=1
+FrameX=70
+FrameY=109
+FrameCX=768
+FrameCY=530
+OpenFile1=ProjectWindow
+PrjPos=0,0,615,0,317
+ActivePRJ=do_simulator.prj
+[ProjectWindow]
+ProjectWindowDispType=0

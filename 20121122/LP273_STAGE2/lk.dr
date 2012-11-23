@@ -1,0 +1,57 @@
+;/*
+;******************************************************************************
+;*
+;*  This device driver was created by Applilet2 for the Applilet2 for 78K0S/Kx1+
+;*  8-Bit Single-Chip Microcontrollers
+;*
+;*  Copyright(C) NEC Electronics Corporation 2002 - 2012
+;*  All rights reserved by NEC Electronics Corporation.
+;*
+;*  This program should be used on your own responsibility.
+;*  NEC Electronics Corporation assumes no responsibility for any losses
+;*  incurred by customers or third parties arising from the use of this file.
+;*
+;*  Filename :	 lk.dr
+;*  Abstract :	This is the link file.
+;*  APIlib :	Applilet2 for 78K0S/Kx1+ V2.41 [9 Sep. 2008]
+;*
+;*  Device :	uPD78F9202
+;*
+;*  Compiler :	CC78K0S
+;*
+;*  Creation date:	2012-7-16
+;*  
+;******************************************************************************
+;*/
+;******************************************************************************
+;<Directive>
+;	MEMORY directive:	Declares an address in installed memory.
+;	MERGE directive:	Specifies location of a segment.
+;******************************************************************************
+;<Example on how to specify the stack area>
+;	Please specify the linker option -SSTK.
+;	The stack area should be in the internal high-speed RAM area in case of 
+;	78K/0 or 78K/0S series.
+;
+;			START ADDRESS, STACK SIZE
+;	memory STK : (0FE00H, 20H)
+;******************************************************************************
+;<Example of locating data in external memory>
+;	The section name output by C compiler can be changed with #pragma section 
+;	function.
+;
+;	If the name of ROMization-related section which has global variables with 
+;	initial values is changed, the modification of C start-up routine will be
+;	required. Please refer the CC78K0 C Compiler Language User Manual Language
+;	Chap.11 in detail.
+;
+;	ex. This is the example of renaming the @@DATA segment.
+;	#pragma section @@DATA DAT1
+;	
+;	By the following directives, "DAT1" segment is located in EXMEM area.
+;			START ADDRESS, MEMORY SIZE
+;	memory EXMEM : (0F000H, 1000H)
+;	merge  DAT1 := EXMEM
+;******************************************************************************
+
+

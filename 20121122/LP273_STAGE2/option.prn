@@ -1,0 +1,153 @@
+
+
+
+78K/0S Series Assembler V2.00                                                                            Date:22 Nov 2012 Page:   1
+
+
+
+Command:  -cF9202 -yC:\Program Files\NEC Electronics Tools\DEV -_msgoff option.asm
+Para-file:
+In-file:  option.asm
+Obj-file: option.rel
+Prn-file: option.prn
+
+      Assemble list
+
+ ALNO  STNO ADRS  OBJECT   M I  SOURCE STATEMENT
+
+    1     1                     ;/*
+    2     2                     ;******************************************************************************
+    3     3                     ;*
+    4     4                     ;*  This device driver was created by Applilet2 for the Applilet2 for 78K0S/Kx1+
+    5     5                     ;*  8-Bit Single-Chip Microcontrollers
+    6     6                     ;*
+    7     7                     ;*  Copyright(C) NEC Electronics Corporation 2002 - 2012
+    8     8                     ;*  All rights reserved by NEC Electronics Corporation.
+    9     9                     ;*
+   10    10                     ;*  This program should be used on your own responsibility.
+   11    11                     ;*  NEC Electronics Corporation assumes no responsibility for any losses
+   12    12                     ;*  incurred by customers or third parties arising from the use of this file.
+   13    13                     ;*
+   14    14                     ;*  Filename :   option.asm
+   15    15                     ;*  Abstract :  This file implements OPTION-BYTES/SECURITY-ID setting.
+   16    16                     ;*  APIlib :    Applilet2 for 78K0S/Kx1+ V2.41 [9 Sep. 2008]
+   17    17                     ;*
+   18    18                     ;*  Device :    uPD78F9202
+   19    19                     ;*
+   20    20                     ;*  Compiler :  CC78K0S
+   21    21                     ;*
+   22    22                     ;*  Creation date:      2012-7-16
+   23    23                     ;*  
+   24    24                     ;******************************************************************************
+   25    25                     ;*/
+   26    26                     
+   27    27                     ;/*
+   28    28                     ;******************************************************************************
+   29    29                     ;*  Include files
+   30    30                     ;******************************************************************************
+   31    31                     ;*/
+   32    32                     $ INCLUDE (option.inc)
+    1    33                  I1 ;/*
+    2    34                  I1 ;******************************************************************************
+    3    35                  I1 ;*
+    4    36                  I1 ;*  This device driver was created by Applilet2 for the Applilet2 for 78K0S/Kx1+
+    5    37                  I1 ;*  8-Bit Single-Chip Microcontrollers
+    6    38                  I1 ;*
+    7    39                  I1 ;*  Copyright(C) NEC Electronics Corporation 2002 - 2012
+    8    40                  I1 ;*  All rights reserved by NEC Electronics Corporation.
+    9    41                  I1 ;*
+   10    42                  I1 ;*  This program should be used on your own responsibility.
+   11    43                  I1 ;*  NEC Electronics Corporation assumes no responsibility for any losses
+   12    44                  I1 ;*  incurred by customers or third parties arising from the use of this file.
+   13    45                  I1 ;*
+   14    46                  I1 ;*  Filename :   option.inc
+
+
+
+78K/0S Series Assembler V2.00                                                                            Date:22 Nov 2012 Page:   2
+
+
+
+ ALNO  STNO ADRS  OBJECT   M I  SOURCE STATEMENT
+
+   15    47                  I1 ;*  Abstract :  This file implements OPTION-BYTES/SECURITY-ID setting.
+   16    48                  I1 ;*  APIlib :    Applilet2 for 78K0S/Kx1+ V2.41 [9 Sep. 2008]
+   17    49                  I1 ;*
+   18    50                  I1 ;*  Device :    uPD78F9202
+   19    51                  I1 ;*
+   20    52                  I1 ;*  Compiler :  CC78K0S
+   21    53                  I1 ;*
+   22    54                  I1 ;*  Creation date:      2012-6-8
+   23    55                  I1 ;*  
+   24    56                  I1 ;******************************************************************************
+   25    57                  I1 ;*/
+   26    58                  I1 
+   27    59                  I1 ;/*
+   28    60                  I1 ;******************************************************************************
+   29    61                  I1 ;*  Macro define
+   30    62                  I1 ;******************************************************************************
+   31    63                  I1 ;*/
+   32    64                  I1 ;/* 
+   33    65                  I1 ;******************************************************************************
+   34    66                  I1 ;*  Register bit define
+   35    67                  I1 ;******************************************************************************
+   36    68                  I1 ;*/ 
+   37    69                  I1 ; ********** OPTION-BYTE(at 80H) bit define **********
+   38    70       (0090)     I1 OPTIONBYTE_INITIALVALUE EQU     90H
+   39    71                  I1 ; Oscillation stabilization time on power application or after reset release (DEFOSTS1-0)
+   40    72       (0000)     I1 CG_OSCRTAB_SELECT10             EQU     00H     ; 2^10/fX
+   41    73       (0020)     I1 CG_OSCRTAB_SELECT12             EQU     20H     ; 2^12/fX
+   42    74       (0040)     I1 CG_OSCRTAB_SELECT15             EQU     40H     ; 2^15/fX
+   43    75       (0060)     I1 CG_OSCRTAB_SELECT17             EQU     60H     ; 2^17/fX
+   44    76                  I1 ; Control RESET pin (RMCE)
+   45    77       (0008)     I1 RESET_PIN_USED                  EQU     08H     ; used as RESET pin
+   46    78       (0000)     I1 RESET_PIN_UNUSED                EQU     00H     ; used RESET pin as input port pin (P34)
+   47    79                  I1 ; Selection system clock source (OSCSEL1-0)
+   48    80       (0000)     I1 CG_CRYSTAL_OSCILLATION  EQU     00H     ; select crystal/ceramic oscillation clock
+   49    81       (0002)     I1 CG_EXTERNAL_CLOCK               EQU     02H     ; select external clock input
+   50    82       (0004)     I1 CG_HIGH_SPEED_INTERNAL  EQU     04H     ; select high-speed internal oscillation clock
+   51    83                  I1 ; Internal low-speed oscillator operation (LIOCP)
+   52    84       (0000)     I1 CG_LOWINTERNAL_CANSTOP  EQU     00H     ; can be stopped by software
+   53    85       (0001)     I1 CG_LOWINTERNAL_CANNOT   EQU     01H     ; cannot be stopped
+   33    86                     ;/*
+   34    87                     ;******************************************************************************
+   35    88                     ;*  Macro define
+   36    89                     ;******************************************************************************
+   37    90                     ;*/
+   38    91                     
+   39    92                     ;/*
+   40    93                     ;******************************************************************************
+   41    94                     ;*  Global define
+   42    95                     ;******************************************************************************
+   43    96                     ;*/
+   44    97 ----                        OPT_SET CSEG AT 80H
+   45    98 0080  F5            OPTION:   DB OPTIONBYTE_INITIALVALUE OR CG_OSCRTAB_SELECT17 OR RESET_PIN_UNUSED OR CG_HIGH_SPEED_INT
+                                ERNAL OR CG_LOWINTERNAL_CANNOT
+   46    99                     
+
+
+
+78K/0S Series Assembler V2.00                                                                            Date:22 Nov 2012 Page:   3
+
+
+
+ ALNO  STNO ADRS  OBJECT   M I  SOURCE STATEMENT
+
+   47   100 ----                        ONC_RESERVED CSEG AT 81H
+   48   101 0081  FF            RESERVED: DB 0FFH
+   49   102                     
+   50   103                     ; Start adding user code. Do not edit comment generated here
+   51   104                     ; End user code adding. Do not edit comment generated here
+   52   105                             END
+
+Segment informations:
+
+ADRS  LEN      NAME
+
+0080  0001H    OPT_SET
+0081  0001H    ONC_RESE
+
+ Target chip : uPD78F9202
+ Device file : V3.10
+Assembly complete,     0 error(s) and     0 warning(s) found. (    0)
+

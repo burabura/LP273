@@ -1,0 +1,52 @@
+[SrcFileName]
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\main.c,1353565653
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\systeminit.c,1339145309
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\option.asm,1343350855
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\system.c,1353397161
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\system_user.c,1342427196
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\port.c,1339121328
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,1353566707
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad_user.c,1340000570
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\lvi.c,1339121329
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\lvi_user.c,1339121329
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,1353397399
+G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer_user.c,1343357329
+
+[Function]
+SystemInit,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\systeminit.c,65
+hdwinit,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\systeminit.c,101
+CLOCK_Init,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\system.c,61
+CG_ReadResetSource,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\system_user.c,65
+PORT_Init,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\port.c,61
+PORT_ChangeP23Input,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\port.c,83
+PORT_ChangeP23Output,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\port.c,110
+MD_INTAD,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad_user.c,65
+LVI_Init,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\lvi.c,61
+LVI_Start,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\lvi.c,84
+LVI_Stop,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\lvi.c,124
+MD_INTLVI,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\lvi_user.c,62
+TM00_Init,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,61
+TM00_Start,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,89
+TM00_Stop,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,111
+TM00_ChangeTimerCondition,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,134
+TMH1_Init,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,169
+TMH1_Start,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,199
+TMH1_Stop,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,222
+TMH1_ChangeDuty,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer.c,244
+MD_INTTM000,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer_user.c,72
+MD_INTTMH1,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\timer_user.c,93
+Fn_change_and_runTMH1,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\main.c,108
+FN_SWconfirm,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\main.c,131
+Fn_CDSsampleOneShot,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\main.c,148
+Fn_ADsampleOneShot,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\main.c,173
+Fn_PIR_ADaverage,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\main.c,221
+main,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\main.c,237
+AD_Init,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,61
+AD_Start,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,94
+AD_Read,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,115
+AD_Stop,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,134
+AD_ComparatorOn,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,155
+AD_ComparatorOff,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,174
+AD_SelectADChannel,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,194
+Fn_ADSsampleOneShot,G:\test proj\78K0S_test\LED Software\Using\20121122\LP273_STAGE2\ad.c,221
+

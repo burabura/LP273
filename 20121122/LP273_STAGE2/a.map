@@ -1,0 +1,347 @@
+
+
+
+78K/0S Series Linker V2.00                    Date:22 Nov 2012 Page:   1
+
+Command:   -yC:\Program Files\NEC Electronics Tools\DEV -_msgoff -oa.lmf
+            C:\Program Files\NEC Electronics Tools\CC78K0S\V2.01\lib78k0
+           s\s0s.rel -pa.map -bcl0s.lib -bcl0sf.lib -iC:\Program Files\N
+           EC Electronics Tools\CC78K0S\V2.01\lib78k0s -dlk.dr -s main.r
+           el systeminit.rel option.rel system.rel system_user.rel port.
+           rel ad.rel ad_user.rel lvi.rel lvi_user.rel timer.rel timer_u
+           ser.rel
+Para-file:
+Out-file:  a.lmf
+Map-file:  a.map
+Direc-file:lk.dr
+Directive: ;/*
+           ;************************************************************
+           ******************
+           ;*
+           ;*  This device driver was created by Applilet2 for the Appli
+           let2 for 78K0S/Kx1+
+           ;*  8-Bit Single-Chip Microcontrollers
+           ;*
+           ;*  Copyright(C) NEC Electronics Corporation 2002 - 2012
+           ;*  All rights reserved by NEC Electronics Corporation.
+           ;*
+           ;*  This program should be used on your own responsibility.
+           ;*  NEC Electronics Corporation assumes no responsibility for
+            any losses
+           ;*  incurred by customers or third parties arising from the u
+           se of this file.
+           ;*
+           ;*  Filename :   lk.dr
+           ;*  Abstract :  This is the link file.
+           ;*  APIlib :    Applilet2 for 78K0S/Kx1+ V2.41 [9 Sep. 2008]
+           ;*
+           ;*  Device :    uPD78F9202
+           ;*
+           ;*  Compiler :  CC78K0S
+           ;*
+           ;*  Creation date:      2012-7-16
+           ;*  
+           ;************************************************************
+           ******************
+           ;*/
+           ;************************************************************
+           ******************
+           ;<Directive>
+           ;       MEMORY directive:       Declares an address in instal
+           led memory.
+           ;       MERGE directive:        Specifies location of a segme
+           nt.
+           ;************************************************************
+           ******************
+           ;<Example on how to specify the stack area>
+           ;       Please specify the linker option -SSTK.
+           ;       The stack area should be in the internal high-speed R
+           AM area in case of 
+           ;       78K/0 or 78K/0S series.
+           ;
+           ;                       START ADDRESS, STACK SIZE
+           ;       memory STK : (0FE00H, 20H)
+           ;************************************************************
+           ******************
+           ;<Example of locating data in external memory>
+
+
+
+78K/0S Series Linker V2.00                    Date:22 Nov 2012 Page:   2
+
+           ;       The section name output by C compiler can be changed 
+           with #pragma section 
+           ;       function.
+           ;
+           ;       If the name of ROMization-related section which has g
+           lobal variables with 
+           ;       initial values is changed, the modification of C star
+           t-up routine will be
+           ;       required. Please refer the CC78K0 C Compiler Language
+            User Manual Language
+           ;       Chap.11 in detail.
+           ;
+           ;       ex. This is the example of renaming the @@DATA segmen
+           t.
+           ;       #pragma section @@DATA DAT1
+           ;       
+           ;       By the following directives, "DAT1" segment is locate
+           d in EXMEM area.
+           ;                       START ADDRESS, MEMORY SIZE
+           ;       memory EXMEM : (0F000H, 1000H)
+           ;       merge  DAT1 := EXMEM
+           ;************************************************************
+           ******************
+           
+           
+
+
+*** Link information ***
+
+    18 output segment(s)
+  AC6H byte(s) real data
+   831 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=0000H    SIZE=1000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     0000H     0002H   CSEG AT
+                  @@VECT00 @cstart    0000H     0002H
+* gap *                               0002H     0004H
+         @@VECT06                     0006H     0002H   CSEG AT
+                  @@VECT06 lvi_user   0006H     0002H
+* gap *                               0008H     0004H
+         @@VECT0C                     000CH     0004H   CSEG AT
+                  @@VECT0C timer_user
+                                      000CH     0004H
+* gap *                               0010H     0002H
+         @@VECT12                     0012H     0002H   CSEG AT
+                  @@VECT12 ad_user    0012H     0002H
+* gap *                               0014H     002CH
+         @@CALT                       0040H     0012H   CSEG CALLT0
+                  @@CALT   @cstart    0040H     0000H
+                  @@CALT   main       0040H     0000H
+                  @@CALT   systeminit
+                                      0040H     0000H
+
+
+
+78K/0S Series Linker V2.00                    Date:22 Nov 2012 Page:   3
+
+                  @@CALT   system     0040H     0000H
+                  @@CALT   system_user
+                                      0040H     0000H
+                  @@CALT   port       0040H     0000H
+                  @@CALT   ad         0040H     0000H
+                  @@CALT   ad_user    0040H     0000H
+                  @@CALT   lvi        0040H     0000H
+                  @@CALT   lvi_user   0040H     0000H
+                  @@CALT   timer      0040H     0000H
+                  @@CALT   timer_user
+                                      0040H     0000H
+                  @@CALT   @cproc     0040H     0004H
+                  @@CALT   @deilost   0044H     0004H
+                  @@CALT   @dincdec   0048H     0004H
+                  @@CALT   @hlicmp    004CH     0002H
+                  @@CALT   @ctoi      004EH     0002H
+                  @@CALT   @divuw     0050H     0002H
+* gap *                               0052H     002EH
+         OPT_SET                      0080H     0001H   CSEG AT
+                  OPT_SET  option     0080H     0001H
+         ONC_RESE                     0081H     0001H   CSEG AT
+                  ONC_RESE option     0081H     0001H
+         @@R_INIS                     0082H     0000H   CSEG UNITP
+                  @@R_INIS @cstart    0082H     0000H
+                  @@R_INIS main       0082H     0000H
+                  @@R_INIS systeminit
+                                      0082H     0000H
+                  @@R_INIS system     0082H     0000H
+                  @@R_INIS system_user
+                                      0082H     0000H
+                  @@R_INIS port       0082H     0000H
+                  @@R_INIS ad         0082H     0000H
+                  @@R_INIS ad_user    0082H     0000H
+                  @@R_INIS lvi        0082H     0000H
+                  @@R_INIS lvi_user   0082H     0000H
+                  @@R_INIS timer      0082H     0000H
+                  @@R_INIS timer_user
+                                      0082H     0000H
+                  @@R_INIS @rom       0082H     0000H
+         @@LCODE                      0082H     0117H   CSEG
+                  @@LCODE  @cstart    0082H     0066H
+                  @@LCODE  @imul      00E8H     002FH
+                  @@LCODE  @cproc     0117H     001CH
+                  @@LCODE  @deilost   0133H     000CH
+                  @@LCODE  @dincdec   013FH     0016H
+                  @@LCODE  @hlicmp    0155H     0007H
+                  @@LCODE  @ctoi      015CH     0006H
+                  @@LCODE  @divuw     0162H     0037H
+         @@R_INIT                     0199H     0000H   CSEG
+                  @@R_INIT @cstart    0199H     0000H
+                  @@R_INIT main       0199H     0000H
+                  @@R_INIT systeminit
+                                      0199H     0000H
+                  @@R_INIT system     0199H     0000H
+                  @@R_INIT system_user
+                                      0199H     0000H
+                  @@R_INIT port       0199H     0000H
+                  @@R_INIT ad         0199H     0000H
+                  @@R_INIT ad_user    0199H     0000H
+                  @@R_INIT lvi        0199H     0000H
+                  @@R_INIT lvi_user   0199H     0000H
+
+
+
+78K/0S Series Linker V2.00                    Date:22 Nov 2012 Page:   4
+
+                  @@R_INIT timer      0199H     0000H
+                  @@R_INIT timer_user
+                                      0199H     0000H
+                  @@R_INIT @rom       0199H     0000H
+         @@CNST                       0199H     0000H   CSEG
+                  @@CNST   @cstart    0199H     0000H
+                  @@CNST   main       0199H     0000H
+                  @@CNST   systeminit
+                                      0199H     0000H
+                  @@CNST   system     0199H     0000H
+                  @@CNST   system_user
+                                      0199H     0000H
+                  @@CNST   port       0199H     0000H
+                  @@CNST   ad         0199H     0000H
+                  @@CNST   ad_user    0199H     0000H
+                  @@CNST   lvi        0199H     0000H
+                  @@CNST   lvi_user   0199H     0000H
+                  @@CNST   timer      0199H     0000H
+                  @@CNST   timer_user
+                                      0199H     0000H
+         @@CODE                       0199H     0991H   CSEG
+                  @@CODE   main       0199H     06A3H
+                  @@CODE   systeminit
+                                      083CH     0023H
+                  @@CODE   system     085FH     000AH
+                  @@CODE   system_user
+                                      0869H     002FH
+                  @@CODE   port       0898H     0049H
+                  @@CODE   ad         08E1H     00C5H
+                  @@CODE   ad_user    09A6H     0009H
+                  @@CODE   lvi        09AFH     0060H
+                  @@CODE   lvi_user   0A0FH     0001H
+                  @@CODE   timer      0A10H     0108H
+                  @@CODE   timer_user
+                                      0B18H     0012H
+* gap *                               0B2AH     04D6H
+
+  MEMORY=RAM
+  BASE ADDRESS=FE80H    SIZE=0180H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@INIS                       FE80H     0000H   DSEG UNITP
+                  @@INIS   @cstart    FE80H     0000H
+                  @@INIS   main       FE80H     0000H
+                  @@INIS   systeminit
+                                      FE80H     0000H
+                  @@INIS   system     FE80H     0000H
+                  @@INIS   system_user
+                                      FE80H     0000H
+                  @@INIS   port       FE80H     0000H
+                  @@INIS   ad         FE80H     0000H
+                  @@INIS   ad_user    FE80H     0000H
+                  @@INIS   lvi        FE80H     0000H
+                  @@INIS   lvi_user   FE80H     0000H
+                  @@INIS   timer      FE80H     0000H
+                  @@INIS   timer_user
+                                      FE80H     0000H
+                  @@INIS   @rom       FE80H     0000H
+         @@DATS                       FE80H     0000H   DSEG UNITP
+                  @@DATS   @cstart    FE80H     0000H
+                  @@DATS   main       FE80H     0000H
+
+
+
+78K/0S Series Linker V2.00                    Date:22 Nov 2012 Page:   5
+
+                  @@DATS   systeminit
+                                      FE80H     0000H
+                  @@DATS   system     FE80H     0000H
+                  @@DATS   system_user
+                                      FE80H     0000H
+                  @@DATS   port       FE80H     0000H
+                  @@DATS   ad         FE80H     0000H
+                  @@DATS   ad_user    FE80H     0000H
+                  @@DATS   lvi        FE80H     0000H
+                  @@DATS   lvi_user   FE80H     0000H
+                  @@DATS   timer      FE80H     0000H
+                  @@DATS   timer_user
+                                      FE80H     0000H
+                  @@DATS   @rom       FE80H     0000H
+         @@DATA                       FE80H     0035H   DSEG
+                  @@DATA   @cstart    FE80H     0002H
+                  @@DATA   main       FE82H     0033H
+                  @@DATA   systeminit
+                                      FEB5H     0000H
+                  @@DATA   system     FEB5H     0000H
+                  @@DATA   system_user
+                                      FEB5H     0000H
+                  @@DATA   port       FEB5H     0000H
+                  @@DATA   ad         FEB5H     0000H
+                  @@DATA   ad_user    FEB5H     0000H
+                  @@DATA   lvi        FEB5H     0000H
+                  @@DATA   lvi_user   FEB5H     0000H
+                  @@DATA   timer      FEB5H     0000H
+                  @@DATA   timer_user
+                                      FEB5H     0000H
+                  @@DATA   @rom       FEB5H     0000H
+         @@INIT                       FEB5H     0000H   DSEG
+                  @@INIT   @cstart    FEB5H     0000H
+                  @@INIT   main       FEB5H     0000H
+                  @@INIT   systeminit
+                                      FEB5H     0000H
+                  @@INIT   system     FEB5H     0000H
+                  @@INIT   system_user
+                                      FEB5H     0000H
+                  @@INIT   port       FEB5H     0000H
+                  @@INIT   ad         FEB5H     0000H
+                  @@INIT   ad_user    FEB5H     0000H
+                  @@INIT   lvi        FEB5H     0000H
+                  @@INIT   lvi_user   FEB5H     0000H
+                  @@INIT   timer      FEB5H     0000H
+                  @@INIT   timer_user
+                                      FEB5H     0000H
+                  @@INIT   @rom       FEB5H     0000H
+         @@BITS                       FEB5H     0000H   BSEG
+                  @@BITS   @cstart    FEB5H.0   0000H.0
+                  @@BITS   main       FEB5H.0   0000H.0
+                  @@BITS   systeminit
+                                      FEB5H.0   0000H.0
+                  @@BITS   system     FEB5H.0   0000H.0
+                  @@BITS   system_user
+                                      FEB5H.0   0000H.0
+                  @@BITS   port       FEB5H.0   0000H.0
+                  @@BITS   ad         FEB5H.0   0000H.0
+                  @@BITS   ad_user    FEB5H.0   0000H.0
+                  @@BITS   lvi        FEB5H.0   0000H.0
+                  @@BITS   lvi_user   FEB5H.0   0000H.0
+
+
+
+78K/0S Series Linker V2.00                    Date:22 Nov 2012 Page:   6
+
+                  @@BITS   timer      FEB5H.0   0000H.0
+                  @@BITS   timer_user
+                                      FEB5H.0   0000H.0
+* gap *                               FEB5H     0043H
+         @@RTARG0                     FEF8H     0008H   DSEG AT
+                  @@RTARG0 @RTARG0    FEF8H     0008H
+* gap (Not Free Area) *               FF00H     0100H
+
+
+ Target chip : uPD78F9202
+ Device file : V3.10
+
